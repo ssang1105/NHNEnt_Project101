@@ -1,12 +1,15 @@
-package com.nhnent.controllers;
+package com.nhnent.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public class DefaultController {
+@Controller
+public class WelcomeController {
+	
 	@RequestMapping("/")
 	public String index() {
-		return "Hello World!";
-	} 
+		return "welcome";
+	}
+	
 }
