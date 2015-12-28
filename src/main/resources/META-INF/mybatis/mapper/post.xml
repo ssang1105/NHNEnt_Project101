@@ -21,30 +21,32 @@
 	<select id="selectByUserEmail" resultType="Post">
 		SELECT
 		 id AS id,
-		 username AS userEmail,
+		 useremail AS userEmail,
 		 password AS password
 		FROM post
 		WHERE post.userEmail = #{userEmail}
 	</select>
 	
-	<insert id="insert" parameterType="com.nhnent.repository.entity.Post">
+	<insert id="insert" parameterType="com.nhnent.repository.entity.Post"  useGeneratedKeys="true">
 		INSERT INTO post (
-			username,
+		    id,
+			useremail,
 			password,
 			bodytext,
 			registeredDate
 		) 
 		VALUES (
+			#{id},
 			#{userEmail},
 			#{password},
-			#{bodyText}
+			#{bodyText},
 			#{registeredDate}
 		)
 	</insert>
 	
 	<update id="update" parameterType="com.nhnent.repository.entity.Post">
 		UPDATE post SET
-		username = #{userName},
+		useremail = #{userEmail},
 		password = #{password},
 		bodytext = #{bodyText},
 		modifiedDate = #{modifiedDate}
@@ -52,7 +54,7 @@
 	</update>
 	
 	<delete id="delete" parameterType="com.nhnent.repository.entity.Post">
-		DELETE FROM post WHERE user.id = #{id}
+		DELETE FROM post WHERE post.id = #{id}
 	</delete>
 	
 </mapper> 
