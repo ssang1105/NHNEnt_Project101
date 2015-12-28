@@ -1,0 +1,58 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nhnent.repository.PostMapper">
+
+	<select id="selectList" resultType="Post">
+		SELECT
+		 id AS id,
+		 useremail AS userEmail,
+		 password AS password
+		FROM post
+	</select>
+	
+	<select id="selectOne" resultType="Post" parameterType="Long">
+		SELECT
+		 id AS id,
+		 useremail AS userEmail,
+		 password AS password
+		FROM post
+		WHERE post.id = #{value}
+	</select>
+	
+	<select id="selectByUserEmail" resultType="Post">
+		SELECT
+		 id AS id,
+		 username AS userEmail,
+		 password AS password
+		FROM post
+		WHERE post.userEmail = #{userEmail}
+	</select>
+	
+	<insert id="insert" parameterType="com.nhnent.repository.entity.Post">
+		INSERT INTO post (
+			username,
+			password,
+			bodytext,
+			registeredDate
+		) 
+		VALUES (
+			#{userEmail},
+			#{password},
+			#{bodyText}
+			#{registeredDate}
+		)
+	</insert>
+	
+	<update id="update" parameterType="com.nhnent.repository.entity.Post">
+		UPDATE post SET
+		username = #{userName},
+		password = #{password},
+		bodytext = #{bodyText},
+		modifiedDate = #{modifiedDate}
+		WHERE post.id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="com.nhnent.repository.entity.Post">
+		DELETE FROM post WHERE user.id = #{id}
+	</delete>
+	
+</mapper> 
