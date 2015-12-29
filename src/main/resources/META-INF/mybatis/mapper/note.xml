@@ -1,11 +1,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.nhnent.repository.NoteMapper">
 
-	<select id="selectList" resultType="Note">
+	<select id="countAll" resultType="Long">
+		SELECT
+		 COUNT(*)
+		FROM note
+	</select>
+
+	<select id="selectAll" resultType="Note">
 		SELECT
 		 id AS id,
 		 useremail AS userEmail,
-		 password AS password
+		 bodytext AS bodytext,
+		 registeredDate AS registeredDate
 		FROM note
 	</select>
 	

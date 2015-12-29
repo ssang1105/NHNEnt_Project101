@@ -1,6 +1,6 @@
 package com.nhnent.repository.entity;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Note {
 	
@@ -9,8 +9,8 @@ public class Note {
 	private String userEmail;
 	private String password;
 	private String bodyText;
-	private Date registeredDate;
-	private Date modifiedDate;
+	private Timestamp registeredDate;
+	private Timestamp modifiedDate;
 	
 	
 	public Long getId() {
@@ -37,16 +37,16 @@ public class Note {
 	public void setBodyText(String bodyText) {
 		this.bodyText = bodyText;
 	}
-	public Date getRegisteredDate() {
+	public Timestamp getRegisteredDate() {
 		return registeredDate;
 	}
-	public void setRegisteredDate(Date registeredDate) {
+	public void setRegisteredDate(Timestamp registeredDate) {
 		this.registeredDate = registeredDate;
 	}
-	public Date getModifiedDate() {
+	public Timestamp getModifiedDate() {
 		return modifiedDate;
 	}
-	public void setModifiedDate(Date modifiedDate) {
+	public void setModifiedDate(Timestamp modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
 	

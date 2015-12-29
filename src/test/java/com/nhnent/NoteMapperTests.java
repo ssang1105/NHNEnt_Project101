@@ -18,7 +18,9 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -40,7 +42,7 @@ public class NoteMapperTests {
 		testNote.setUserEmail("ssang1105@live.co.kr");
 		testNote.setPassword("1234");
 		testNote.setBodyText("Hello World!!");
-		testNote.setRegisteredDate(Date.valueOf(LocalDate.now()));
+		testNote.setRegisteredDate(Timestamp.valueOf(LocalDateTime.now()));
 		
 		noteMapper.insert(testNote);
 		testNote = noteMapper.selectByUserEmail("ssang1105@live.co.kr");
@@ -71,7 +73,7 @@ public class NoteMapperTests {
 	
 	@Test
 	public void selectList() {
-		List<Note> notes = noteMapper.selectList();
+		List<Note> notes = noteMapper.selectAll();
 		assertThat(notes, notNullValue());
 	}
 	

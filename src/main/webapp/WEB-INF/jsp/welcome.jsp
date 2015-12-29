@@ -75,6 +75,12 @@
 	    </div>
 	  </div>
 	</div>
+	
+	<input type="hidden" id="noteNumber" value='${noteNumber}'/>
+	<input type="hidden" id="notes" value='${notes}'/>
+
+
+	
 </body>
 
 <script src="/js/jquery.min.js"></script>

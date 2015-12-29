@@ -7,7 +7,10 @@ import org.apache.ibatis.annotations.Param;
 import com.nhnent.repository.entity.Note;
 
 public interface NoteMapper {
-	public List<Note> selectList();
+	
+	public Long countAll();
+	
+	public List<Note> selectAll();
 	
 	public Note selectOne(Long id);
 	
@@ -18,4 +21,5 @@ public interface NoteMapper {
 	public void update(Note note);
 	
 	public void delete(Note note);
+
 }
