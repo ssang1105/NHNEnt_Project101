@@ -34,7 +34,7 @@ public class NoteController {
 		note.setRegisteredDate(Date.valueOf(LocalDate.now()));
 		noteMapper.insert(note);
 		
-		return "welcome";
+		return "welcome"; 
 	}
 
 }
