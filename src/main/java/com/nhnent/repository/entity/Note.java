@@ -2,7 +2,7 @@ package com.nhnent.repository.entity;
 
 import java.sql.Date;
 
-public class Post {
+public class Note {
 	
 	
 	private Long id;
