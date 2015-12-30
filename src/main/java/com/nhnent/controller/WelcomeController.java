@@ -23,7 +23,6 @@ public class WelcomeController {
 	
 	@RequestMapping("/")
 	public String index(Model model) throws Exception {
-		
 		ObjectMapper mapper = new ObjectMapper();
 		model.addAttribute("notesList", mapper.writeValueAsString(noteMapper.selectAll()));
 		

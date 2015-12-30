@@ -57,6 +57,7 @@
 	
 	<update id="update" parameterType="com.nhnent.repository.entity.Note">
 		UPDATE note SET
+		    useremail = #{userEmail},
 			bodytext = #{bodyText},
 			registeredDate = #{registeredDate},
 			modifiedDate = #{modifiedDate}

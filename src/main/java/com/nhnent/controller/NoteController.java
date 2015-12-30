@@ -32,7 +32,6 @@ public class NoteController {
 	public String createNote(@ModelAttribute Note note, Model model) throws Exception{
 		
 		try{
-			
 			if(note.getBodyText().equals("") || note.getUserEmail().equals("") || note.getPassword().equals("")){
 				model.addAttribute("message", "Fill the blank area!");
 				return String.format("redirect:/error?message=%s", "Fill the blank area!");
