@@ -85,7 +85,7 @@ public class NoteController {
 	} 
 
 	public boolean isValidEmail(String email) {
-        if (email==null) return false; 
+        if (email==null) return false;
         boolean b = Pattern.matches( "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",email.trim());
         return b;
