@@ -4,7 +4,7 @@ spring:
 datasource:
   master:
       driver-class-name: "com.mysql.jdbc.Driver"
-      url: "jdbc:mysql://localhost:3306/guestbook"
+      url: "jdbc:mysql://localhost:3306/guestbook?zeroDateTimeBehavior=convertToNull"
       user-name: "dev"
       password: "1234"
       initial-size: 10

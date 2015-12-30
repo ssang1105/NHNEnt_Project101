@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="ko-kr">
 <head>
+	<title>Guest Book</title>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" >
 	<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="/css/sweetalert.css" rel="stylesheet" type="text/css">
 	<link href="/css/welcome.css" rel="stylesheet" type="text/css">
 	
 </head>
@@ -10,7 +13,7 @@
 	<div class="container">
 	  <div class="row">
 	    <div class="col-md-12 col-xs-12 col-sm-12">
-	    	<section class="comment-window">
+	    	<section class="note-window">
 	    		<article class="row">
 		          <div class="col-md-12 col-xs-12 col-sm-12">
 						<div class="widget-area">
@@ -32,45 +35,8 @@
 				</article>
 			</section>
 					
-	        <section id ="notes-list" class="comment-list">
-	          <!-- First Comment -->
-	          <!-- <article class="row">
-	            <div class="col-md-12 col-xs-12 col-sm-12">
-	              <div class="panel panel-default">
-	                <div class="panel-body">
-	                  <header class="text-left">
-	                    <div class="comment-user"><i class="fa fa-user"></i> Sang Woo</div>
-                    	<time><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
-	                  </header>
-	                  <div class="comment-post">
-	                    <p>
-	                     11 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-	                    </p>
-	                  </div>
-	                  <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-ellipsis-h"></i></a></p>
-	                </div>
-	              </div>
-	            </div>
-	          </article>
-	          
-	            <article class="row">
-	            <div class="col-md-12 col-xs-12 col-sm-12">
-	              <div class="panel panel-default">
-	                <div class="panel-body">
-	                  <header class="text-left">
-	                    <div class="comment-user"><i class="fa fa-user"></i> Sang Woo</div>
-                    	<time><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
-	                  </header>
-	                  <div class="comment-post">
-	                    <p>
-	                     11 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-	                    </p>
-	                  </div>
-	                  <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-ellipsis-h"></i></a></p>
-	                </div>
-	              </div>
-	            </div>
-	          </article> -->
+	        <section id ="notes-list" class="notes-list">
+	        <!-- js로 동적으로 note 추가 -->
 	        </section>
 	    </div>
 	  </div>
@@ -86,6 +52,7 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/moment.js"></script>
+<script src="/js/sweetalert.min.js"></script>
 <script src="/js/welcome.js"></script>
 
 </html>

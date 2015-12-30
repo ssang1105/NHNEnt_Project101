@@ -3,16 +3,17 @@
 
 	<select id="countAll" resultType="Long">
 		SELECT
-		 COUNT(*)
+		 	COUNT(*)
 		FROM note
 	</select>
 
 	<select id="selectAll" resultType="Note">
 		SELECT
-		 id AS id,
-		 useremail AS userEmail,
-		 bodytext AS bodytext,
-		 registeredDate AS registeredDate
+			 id AS id,
+			 useremail AS userEmail,
+			 bodytext AS bodytext,
+			 registeredDate AS registeredDate,
+			 modifiedDate AS modifiedDate
 		FROM note
 		ORDER BY registeredDate ASC;
 	</select>
@@ -20,8 +21,8 @@
 	<select id="selectOne" resultType="Note" parameterType="Long">
 		SELECT
 		 id AS id,
-		 useremail AS userEmail,
-		 password AS password
+			 useremail AS userEmail,
+			 password AS password
 		FROM note
 		WHERE note.id = #{value}
 	</select>
@@ -29,13 +30,13 @@
 	<select id="selectByUserEmail" resultType="Note">
 		SELECT
 		 id AS id,
-		 useremail AS userEmail,
-		 password AS password
+			 useremail AS userEmail,
+			 password AS password
 		FROM note
 		WHERE note.userEmail = #{userEmail}
 	</select>
 	
-	<insert id="insert" parameterType="com.nhnent.repository.entity.Note"  useGeneratedKeys="true">
+	<insert id="insert" parameterType="com.nhnent.repository.entity.Note">
 		INSERT INTO note (
 		    id,
 			useremail,
@@ -54,10 +55,9 @@
 	
 	<update id="update" parameterType="com.nhnent.repository.entity.Note">
 		UPDATE note SET
-		useremail = #{userEmail},
-		password = #{password},
-		bodytext = #{bodyText},
-		modifiedDate = #{modifiedDate}
+			useremail = #{userEmail},
+			bodytext = #{bodyText},
+			modifiedDate = #{modifiedDate}
 		WHERE note.id = #{id}
 	</update>
 	
