@@ -47,7 +47,31 @@ $(document).ready(function(){
 					            data : data,
 					            dataType:'json',
 					            complete:function(data){
-					            	swal("Nice!", "You wrote: " + data, "success");
+					            	var state = $(data).attr('responseText');
+					            	if(state == "success"){
+					            		swal({
+					            			title : "글 수정 성공!",
+					            			text : "성공적으로 변경되었습니다.",
+					            			type : "success",
+					            			showCancelButton : false,
+					            			closeOnConfrim : false
+					            			
+					            		}, function(){
+					            			location.reload();
+					            		});
+					            	}
+					            	else{
+					            		swal({
+					            			title : "글 수정 실패!",
+					            			text : "비밀번호가 잘못되었습니다.",
+					            			type : "error",
+					            			showCancelButton : false,
+					            			closeOnConfrim : false
+					            			
+					            		}, function(){
+					            			location.reload();
+					            		});
+					            	}
 					            }
 					        })
 						

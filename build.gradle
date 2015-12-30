@@ -37,6 +37,9 @@ dependencies {
     
     compile('org.springframework.boot:spring-boot-starter-web')
     compile("org.springframework.boot:spring-boot-configuration-processor")
+    compile('com.googlecode.json-simple:json-simple:1.1')
+    
+    
     
    	// for database
     compile('org.springframework.boot:spring-boot-starter-jdbc')

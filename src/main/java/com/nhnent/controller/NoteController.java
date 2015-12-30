@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.logging.Logger;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,13 +29,6 @@ public class NoteController {
 	
 	@RequestMapping(value = "/note", method = RequestMethod.POST)
 	public String uploadNote(@ModelAttribute Note note){
-		
-		logger.info("Insert Note!");
-		logger.info("Note Body : " + note.getBodyText());
-		logger.info("User email : " + note.getUserEmail());
-		logger.info("User pwd : " + note.getPassword());
-		logger.info("Current Time : " + Timestamp.valueOf(LocalDateTime.now()));
-		
 		// 유효성 check하는 함수 추가. 오류발생시 exception. exception -> /error로 redirect
 		note.setRegisteredDate(Timestamp.valueOf(LocalDateTime.now())); 
 		noteMapper.insert(note);
@@ -42,15 +36,12 @@ public class NoteController {
 		return "redirect:/"; 
 	}
 	
-	@RequestMapping(value = "/note", method = RequestMethod.PUT)
-	public @ResponseBody Object updateNote(@RequestParam("noteId")String noteId, @RequestParam("pwd") String password, @RequestParam("newNoteBody") String newNoteBody){
-		
-		logger.info("noteID : " + noteId);
-		logger.info("pwd : " + password);
-		logger.info("new note body : " + newNoteBody);
+	@RequestMapping(value = "/note", method = RequestMethod.PUT, produces="application/json")
+	public @ResponseBody String updateNote(@RequestParam("noteId")String noteId, @RequestParam("pwd") String password, @RequestParam("newNoteBody") String newNoteBody)  throws Exception{
 		
 		Note updateNote = noteMapper.selectOne(Long.valueOf(noteId));
-		if(updateNote.getPassword() == password){
+
+		if(updateNote.getPassword().equals(password)){
 			updateNote.setBodyText(newNoteBody);
 			updateNote.setModifiedDate(Timestamp.valueOf(LocalDateTime.now()));
 			noteMapper.update(updateNote);
@@ -59,15 +50,13 @@ public class NoteController {
 		else{
 			return "fail";
 		}
-		
-		
 		 
 	}
 	
 	@RequestMapping(value = "/note", method = RequestMethod.DELETE)
 	public String deleteNote(@ModelAttribute Note note, WebRequest request,Model model){
-		
-		return "welcome"; 
+		// 삭제 기능 개발시 
+		return "none"; 
 	} 
 	
 	@RequestMapping(value = "/notes", method = RequestMethod.GET, produces = "application/json")
