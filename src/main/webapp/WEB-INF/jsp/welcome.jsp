@@ -19,13 +19,16 @@
 						<div class="widget-area">
 							<div class="status-upload">
 								<form method="POST" action="/note" autocomplete="off">
-									<textarea name="bodyText" placeholder="Let's leave a comment here!" ></textarea>
+									<textarea id="body-text" name="bodyText" placeholder="Let's leave a comment here!" ></textarea>
 									<div class="submit_container">
 										<ul class=".col-xs-12 .col-sm-6 .col-lg-8">
-											<li><div class="input-prepend"><span class="add-on"><i class="fa fa-envelope-o"></i></span><input type="email" id="" name="userEmail"></div></li>
-											<li><div class="input-prepend"><span class="add-on"><i class="fa fa-unlock-alt"></i></span><input type="password" id="" name="password"></div></li>
+											<li><div class="input-prepend"><span class="add-on"><i class="fa fa-envelope-o"></i></span><input type="email" id="user-email" name="userEmail">
+													<p class="error_message" id="email_error" hidden>Invalid Email</p>
+												</div></li>
+											<li><div class="input-prepend"><span class="add-on"><i class="fa fa-unlock-alt"></i></span><input type="password" id="password" name="password"></div></li>
 										</ul>
-										<button type="submit" class=".col-xs-6 .col-lg-4 btn btn-success green"><i class="fa fa-share"></i> Submit</button>
+										<button id="submit-button" type="submit" class=".col-xs-6 .col-lg-4 btn btn-success green"><i class="fa fa-share"></i> Submit</button>
+										
 									</div>
 									
 								</form>

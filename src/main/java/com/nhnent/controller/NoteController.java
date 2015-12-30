@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,13 +32,20 @@ public class NoteController {
 	public String createNote(@ModelAttribute Note note, Model model) throws Exception{
 		
 		try{
-			if(isEmail(note.getUserEmail())){
+			
+			if(note.getBodyText().equals("") || note.getUserEmail().equals("") || note.getPassword().equals("")){
+				model.addAttribute("message", "Fill the blank area!");
+				return String.format("redirect:/error?message=%s", "Fill the blank area!");
+			}
+				
+			
+			if(isValidEmail(note.getUserEmail())){
 				note.setRegisteredDate(Timestamp.valueOf(LocalDateTime.now())); 
 				noteMapper.insert(note);
 				return "redirect:/";
 			}
 			else{
-				model.addAttribute("message", "잘못된 이메일 형식입니다.");
+				model.addAttribute("message", "Wrong Email format!");
 				return String.format("redirect:/error?message=%s", "Wrong Email format!");
 			}
 		} catch (Exception e) {
@@ -79,9 +85,10 @@ public class NoteController {
 		return "none"; 
 	} 
 
-	public boolean isEmail(String email) {
+	public boolean isValidEmail(String email) {
         if (email==null) return false;
-        boolean b = Pattern.matches("[\\w\\~\\-\\.]+@[\\w\\~\\-]+(\\.[\\w\\~\\-]+)+",email.trim());
+        boolean b = Pattern.matches( "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",email.trim());
         return b;
     }
 }
