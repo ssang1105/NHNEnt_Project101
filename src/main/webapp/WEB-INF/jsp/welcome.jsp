@@ -32,9 +32,9 @@
 				</article>
 			</section>
 					
-	        <section class="comment-list">
+	        <section id ="notes-list" class="comment-list">
 	          <!-- First Comment -->
-	          <article class="row">
+	          <!-- <article class="row">
 	            <div class="col-md-12 col-xs-12 col-sm-12">
 	              <div class="panel panel-default">
 	                <div class="panel-body">
@@ -70,14 +70,14 @@
 	                </div>
 	              </div>
 	            </div>
-	          </article>
+	          </article> -->
 	        </section>
 	    </div>
 	  </div>
 	</div>
 	
-	<input type="hidden" id="noteNumber" value='${noteNumber}'/>
-	<input type="hidden" id="notes" value='${notes}'/>
+	
+	<input type="hidden" id="notesList" value='${notesList}'/>
 
 
 	
@@ -85,6 +85,7 @@
 
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/moment.js"></script>
 <script src="/js/welcome.js"></script>
 
 </html>

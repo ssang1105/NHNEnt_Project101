@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nhnent.GuestBookApplication;
 import com.nhnent.repository.NoteMapper;
 import com.nhnent.repository.entity.Note;
@@ -27,8 +28,8 @@ public class NoteController {
 	@Autowired
 	private NoteMapper noteMapper;
 	
-	@RequestMapping(value = "/note", method = RequestMethod.POST, produces = "application/json")
-	public String uploadNote(@ModelAttribute Note note, WebRequest request,Model model) throws Exception {
+	@RequestMapping(value = "/note", method = RequestMethod.POST)
+	public String uploadNote(@ModelAttribute Note note, WebRequest request,Model model){
 		
 		logger.info("Note Body : " + note.getBodyText());
 		logger.info("user email : " + note.getUserEmail());
@@ -49,10 +50,6 @@ public class NoteController {
 	
 	@RequestMapping(value = "/notes", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody Object showAllNotes(){
-		
-		// localdatetime 저장 후 뿌려주는 문제 고치기 
-		
 		return noteMapper.selectAll();
-	
 	}
 }
