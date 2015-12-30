@@ -15,14 +15,16 @@
 			 registeredDate AS registeredDate,
 			 modifiedDate AS modifiedDate
 		FROM note
-		ORDER BY registeredDate ASC;
+		ORDER BY modifiedDate ASC,registeredDate ASC;
 	</select>
 	
-	<select id="selectOne" resultType="Note" parameterType="com.nhnent.repository.entity.Note">
+	<select id="selectById" resultType="Note">
 		SELECT
 		 	 id AS id,
 			 useremail AS userEmail,
-			 password AS password
+			 password AS password,
+			 registeredDate AS registeredDate,
+			 modifiedDate AS modifiedDate
 		FROM note
 		WHERE note.id = #{id}
 	</select>
@@ -56,6 +58,7 @@
 	<update id="update" parameterType="com.nhnent.repository.entity.Note">
 		UPDATE note SET
 			bodytext = #{bodyText},
+			registeredDate = #{registeredDate},
 			modifiedDate = #{modifiedDate}
 		WHERE note.id = #{id}
 	</update>

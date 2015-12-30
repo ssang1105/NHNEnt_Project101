@@ -81,7 +81,7 @@ public class NoteMapperTests {
 	public void selectOne() {
 		assertThat(testNote, notNullValue());
 		
-		Note note= noteMapper.selectOne(testNote.getId());
+		Note note= noteMapper.selectById(testNote.getId());
 		assertThat(note, notNullValue());
 	}
 }

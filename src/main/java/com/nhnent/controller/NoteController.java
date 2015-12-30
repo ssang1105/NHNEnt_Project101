@@ -39,11 +39,13 @@ public class NoteController {
 	@RequestMapping(value = "/note", method = RequestMethod.PUT, produces="application/json")
 	public @ResponseBody String updateNote(@RequestParam("noteId")String noteId, @RequestParam("pwd") String password, @RequestParam("newNoteBody") String newNoteBody)  throws Exception{
 		
-		Note updateNote = noteMapper.selectOne(Long.valueOf(noteId));
+		Note updateNote = noteMapper.selectById(Long.valueOf(noteId));
 
-		if(updateNote.getPassword().equals(password)){
+		
+		if(password.equals(updateNote.getPassword())){
 			updateNote.setBodyText(newNoteBody);
 			updateNote.setModifiedDate(Timestamp.valueOf(LocalDateTime.now()));
+			
 			noteMapper.update(updateNote);
 			return "success";
 		}

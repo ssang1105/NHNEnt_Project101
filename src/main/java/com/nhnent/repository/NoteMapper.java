@@ -12,7 +12,7 @@ public interface NoteMapper {
 	
 	public List<Note> selectAll();
 	
-	public Note selectOne(Long id);
+	public Note selectById(@Param("id") Long id);
 	
 	public Note selectByUserEmail(@Param("userEmail") String userEmail);
 	
