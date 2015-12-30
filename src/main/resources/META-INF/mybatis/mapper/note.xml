@@ -15,7 +15,7 @@
 			 registeredDate AS registeredDate,
 			 modifiedDate AS modifiedDate
 		FROM note
-		ORDER BY modifiedDate ASC,registeredDate ASC;
+		ORDER BY registeredDate ASC,modifiedDate ASC;
 	</select>
 	
 	<select id="selectById" resultType="Note">
